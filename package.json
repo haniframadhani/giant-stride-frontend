@@ -1,6 +1,6 @@
 {
-  "name": "projek-kel-7",
-  "version": "0.1.0",
+  "name": "giant-spot",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,7 @@
   "dependencies": {
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "heroicons": "^2.0.17",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
