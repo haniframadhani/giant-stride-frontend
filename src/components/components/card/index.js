@@ -1,12 +1,12 @@
 export default function Card({ index }) {
   return (
-    <div className={`${index <= 1 ? "col-span-3 relative" : "col-span-1"} grid auto-row-flow gap-5`}>
-      <div className={`${index <= 1 ? "aspect-video" : "aspect-square"}`}>
-        <img src="https://plchldr.co/i/381x381?&bg=D9D9D9&fc=797979" className="object-cover w-full h-full rounded-lg " alt="" />
+    <div className={`${index <= 1 ? "col-span-1 md:col-span-2 lg:col-span-3 md:relative md:rounded-lg md:overflow-hidden" : "col-span-1"} grid auto-row-flow gap-5`}>
+      <div className={`${index <= 1 ? "aspect-square md:aspect-video" : "aspect-square"} rounded-lg overflow-hidden`}>
+        <img src="https://source.unsplash.com/random/300×300/?diving" className="object-cover w-full h-full" alt="" />
       </div>
-      <div className={`${index <= 1 ? "absolute bottom-0 pl-8 py-8 left-0 w-1/2 max-h-full" : ""}`}>
-        <p className={`${index <= 1 ? "text-base" : ""} text-xs capitalize font-light text-light-gray`}>april, 5 2023</p>
-        <h3 className={`${index <= 1 ? "text-5xl" : ""} text-4xl font-medium`}>article {index}</h3>
+      <div className={`${index <= 1 ? "md:absolute md:bottom-0 md:pl-8 md:py-8 md:left-0 md:w-1/2 md:max-h-full md:bg-gradient-to-r md:from-dull-blue/60" : ""}`}>
+        <p className={`${index <= 1 ? "text-base" : "text-xs"} capitalize font-light text-light-gray`}>april, 5 2023</p>
+        <h3 className={`${index <= 1 ? "text-5xl" : "text-4xl"} font-medium`}>article {index}</h3>
       </div>
     </div>
   )
