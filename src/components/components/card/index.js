@@ -1,6 +1,6 @@
 export default function Card({ index }) {
   return (
-    <div className={`${index <= 1 ? "col-span-1 md:col-span-2 lg:col-span-3 md:relative md:rounded-lg md:overflow-hidden" : "col-span-1"} grid auto-row-flow gap-5`}>
+    <div className={`${index <= 1 ? "col-span-1 md:col-span-2 lg:col-span-3 md:relative md:rounded-lg md:overflow-hidden" : "col-span-1"} grid gap-5`}>
       <div className={`${index <= 1 ? "aspect-square md:aspect-video" : "aspect-square"} rounded-lg overflow-hidden`}>
         <img src="https://source.unsplash.com/random/300×300/?diving" className="object-cover w-full h-full" alt="" />
       </div>
