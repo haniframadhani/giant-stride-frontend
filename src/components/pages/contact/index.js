@@ -1,3 +1,4 @@
+import Button from '@/components/components/button';
 import InputEmail from '@/components/components/inputs/email';
 import InputText from '@/components/components/inputs/text';
 import TextArea from '@/components/components/inputs/textarea';
@@ -29,6 +30,7 @@ export default function Contact() {
           <InputText name='name' id='name' placeholder='name' />
           <InputEmail name='email' id='email' placeholder='email' />
           <TextArea placeholder='message' name='message' id='message' />
+          <Button text="send message" />
         </form>
         {/* <div className='col-span-8 grid gap-y-3 mt-5 !font-["Inter"]'>
           <InputText name='name' id='name' placeholder='name' />
