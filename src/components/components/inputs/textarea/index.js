@@ -1,5 +1,5 @@
-export default function TextArea() {
+export default function TextArea({ id, name, placeholder }) {
   return (
-    <textarea placeholder="message" className="input-field" />
+    <textarea placeholder={placeholder} id={id} name={name} className="textarea" />
   )
 }

@@ -25,8 +25,8 @@ export default function Contact() {
       </div>
       <div className='grid grid-cols-12 w-10/12 mx-auto mt-16'>
         <h2 className="capitalize col-span-full font-bold text-3xl">Contact Me</h2>
-        <div>
-          <input type='text' />
+        <div className='col-span-8'>
+          <TextArea placeholder='message' />
         </div>
       </div>
     </div>
