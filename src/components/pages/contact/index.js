@@ -1,3 +1,6 @@
+import InputEmail from '@/components/components/inputs/email';
+import InputText from '@/components/components/inputs/text';
+import TextArea from '@/components/components/inputs/textarea';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
 import Head from 'next/head';
 export default function Contact() {
