@@ -12,9 +12,9 @@ body {
 
 @layer components {
   .input-field {
-    @apply px-4 py-2 rounded text-black bg-light-gray w-full border-transparent placeholder:text-neutral-700 text-base;
+    @apply px-4 py-2 rounded text-black bg-light-gray w-full border-transparent placeholder:text-neutral-700 !font-['Inter'] text-base;
   }
   .textarea {
-    @apply px-4 py-2 rounded text-black bg-light-gray w-full border-transparent placeholder:text-neutral-700 text-base h-36 resize-y;
+    @apply px-4 py-2 rounded text-black bg-light-gray w-full border-transparent placeholder:text-neutral-700 !font-['Inter'] text-base h-36 resize-y;
   }
 }

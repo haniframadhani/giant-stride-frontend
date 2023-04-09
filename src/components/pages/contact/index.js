@@ -25,9 +25,16 @@ export default function Contact() {
       </div>
       <div className='grid grid-cols-12 w-10/12 mx-auto mt-16'>
         <h2 className="capitalize col-span-full font-bold text-3xl">Contact Me</h2>
-        <div className='col-span-8'>
-          <TextArea placeholder='message' />
-        </div>
+        <form className="col-span-8 grid gap-y-3 mt-5 !font-['Inter']">
+          <InputText name='name' id='name' placeholder='name' />
+          <InputEmail name='email' id='email' placeholder='email' />
+          <TextArea placeholder='message' name='message' id='message' />
+        </form>
+        {/* <div className='col-span-8 grid gap-y-3 mt-5 !font-["Inter"]'>
+          <InputText name='name' id='name' placeholder='name' />
+          <InputEmail name='email' id='email' placeholder='email' />
+          <TextArea placeholder='message' name='message' id='message' />
+        </div> */}
       </div>
     </div>
   )
