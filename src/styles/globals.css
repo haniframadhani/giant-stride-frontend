@@ -9,3 +9,9 @@ body {
   background-image: -webkit-linear-gradient(180deg, #339CF0 0%, #004E98 59.37%, #020024 100%);
   background-image: -moz-linear-gradient(270deg, #339CF0 0%, #004E98 59.37%, #020024 100%);
 }
+
+@layer components {
+  .input-field {
+    @apply px-4 py-2 rounded text-black bg-light-gray w-full border-transparent placeholder:text-neutral-700 text-base;
+  }
+}
