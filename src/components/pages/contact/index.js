@@ -4,7 +4,11 @@ import InputText from '@/components/components/inputs/text';
 import TextArea from '@/components/components/inputs/textarea';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
 import Head from 'next/head';
+import { useEffect } from 'react';
 export default function Contact() {
+  useEffect(() => {
+    document.body.className = 'bg-gradient-to-b from-[#339CF0] from-0% via-[#004E98] via-60% to-[#020024] to-100%';
+  }, []);
   return (
     <div className="mx-8 md:mx-10 mt-20 mb-16 text-white font-['Poppins']">
       <Head>

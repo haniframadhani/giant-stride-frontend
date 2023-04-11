@@ -2,10 +2,14 @@ import Button from "@/components/components/button"
 import InputEmail from "@/components/components/inputs/email"
 import InputPassword from "@/components/components/inputs/password"
 import Head from "next/head"
+import { useEffect } from "react"
 
 export default function Login() {
+  useEffect(() => {
+    document.body.className = 'bg-dull-blue';
+  }, []);
   return (
-    <div className="w-screen h-screen bg-dull-blue grid place-content-center">
+    <div className="w-screen h-screen grid place-content-center">
       <Head>
         <title>login</title>
       </Head>
