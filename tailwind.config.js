@@ -19,6 +19,7 @@ module.exports = {
           500: '#cc5200',
           600: '#993d00'
         },
+        'dark-blue': '#004E98'
       }
     },
   }, plugins: [
