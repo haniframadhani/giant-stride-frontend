@@ -14,7 +14,7 @@ export default function Dashboard() {
         <h1 className="capitalize text-4xl font-medium">dashboard</h1>
         <Button text="Create New Post" iconPlus={true} />
       </div>
-      <div className="grid grid-cols-3 gap-x-5 gap-y-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 mt-10">
         {cards.map((card, i) => {
           return <Card key={i} index={card} />
         })}
