@@ -7,10 +7,10 @@ export default function App({ Component, pageProps }) {
     return Component.getLayout(<Component {...pageProps} />)
   }
   return (
-    <>
+    <div className="font-['Poppins']">
       <Navbar />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   )
 }
