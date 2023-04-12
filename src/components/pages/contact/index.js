@@ -14,7 +14,7 @@ export default function Contact() {
       <Head>
         <title>About Me | Giant Spot</title>
       </Head>
-      <div id="about" className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 w-10/12 mx-auto gap-y-8 gap-x-5">
+      <div id="about" className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 w-10/12 mx-auto gap-y-8 gap-x-5 scroll-m-28 snap-start">
         <h2 className="capitalize col-span-full font-bold text-3xl">about me</h2>
         <div className="aspect-square overflow-hidden rounded-lg col-span-full md:col-span-4 row-span-2">
           <img src="https://source.unsplash.com/random/300×300/?man" alt="" />
@@ -28,7 +28,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className='grid grid-cols-12 w-10/12 mx-auto mt-16'>
+      <div id='contact' className='grid grid-cols-12 w-10/12 mx-auto mt-16'>
         <h2 className="capitalize col-span-full font-bold text-3xl">Contact Me</h2>
         <form className="col-span-full lg:col-span-8 grid gap-y-3 mt-5 !font-['Inter']">
           <InputText name='name' id='name' placeholder='name' />
