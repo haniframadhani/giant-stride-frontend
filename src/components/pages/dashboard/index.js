@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">
       <Head>
-        <title>Dashboard</title>
+        <title>Dashboard | Giant Spot</title>
       </Head>
       <div className="col-span-full flex justify-between">
         <h1 className="capitalize text-4xl font-medium">dashboard</h1>

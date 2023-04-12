@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="mx-8 md:mx-10 mt-20 mb-16 font-['Poppins'] text-white">
       <Head>
-        <title>home</title>
+        <title>Home | Giant Spot</title>
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
         {cards.map((card, i) => {

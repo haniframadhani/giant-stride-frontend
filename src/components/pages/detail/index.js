@@ -8,7 +8,7 @@ export default function Detail() {
   return (
     <div className="mx-8 md:mx-10 mt-20 mb-16 text-center text-white font-['Poppins']">
       <Head>
-        <title>halaman detail</title>
+        <title>halaman detail | Giant Spot</title>
       </Head>
       <div className="mx-auto md:w-10/12 aspect-video overflow-hidden rounded-lg">
         <img className="object-cover w-full h-full" src="https://source.unsplash.com/random/300×300/?diving" alt="" />
