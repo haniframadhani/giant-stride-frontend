@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { ArrowUpTrayIcon, XMarkIcon } from '@heroicons/react/24/solid'
 
-const Upload = ({ className }) => {
+const Upload = ({ className, setImage }) => {
   const [files, setFiles] = useState([])
   const [rejected, setRejected] = useState([])
 
@@ -14,6 +14,8 @@ const Upload = ({ className }) => {
           Object.assign(file, { preview: URL.createObjectURL(file) })
         )
       ])
+      // console.log(acceptedFiles[0])
+      setImage(acceptedFiles[0])
     }
 
     if (rejectedFiles?.length) {
