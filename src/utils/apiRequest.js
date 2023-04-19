@@ -12,3 +12,9 @@ export async function uploadImage(data) {
     return error
   })
 }
+
+export async function getAllArticle() {
+  return await axios.get(`${BASEURL}/api/article`).catch(error => {
+    return error
+  })
+}
