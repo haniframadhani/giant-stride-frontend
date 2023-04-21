@@ -1,9 +1,22 @@
 import Button from "@/components/components/button"
 import Card from "@/components/components/card/dashboardcard"
+import { getAllArticle } from "@/utils/apiRequest"
 import Head from "next/head"
 import Link from "next/link"
+import { useState, useEffect } from "react"
 
-export default function Dashboard({ blogs }) {
+export default function Dashboard() {
+  const [blogs, setBlogs] = useState([]);
+
+  const handleGetAllArticle = async () => {
+    const res = await getAllArticle();
+    setBlogs(res?.data?.articles)
+  }
+
+  useEffect(() => {
+    handleGetAllArticle();
+  }, [])
+
   return (
     <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">
       <Head>
