@@ -2,13 +2,13 @@ import Button from "@/components/components/button"
 import InputText from "@/components/components/inputs/text"
 import TextEditor from "@/components/components/texteditor"
 import Upload from "@/components/components/upload"
-import { uploadArticle, uploadImage } from "@/utils/apiRequest"
+import { uploadArticle } from "@/utils/apiRequest"
 import { ChevronLeftIcon } from "@heroicons/react/24/outline"
 
 import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Write() {
   const [post, setPost] = useState({
@@ -23,20 +23,17 @@ export default function Write() {
   const { push } = useRouter();
   const postArticle = async () => {
     let formData = new FormData();
-    formData.append('photo', post?.image)
-    await uploadImage(formData)
-      .then(res => uploadArticle({
-        title: post.title,
-        image: res?.image,
-        body: post.body
-      }))
-    alert('success post article')
-    push('/dashboard')
+    formData.append('image', post?.image)
+    formData.append('title', post?.title)
+    formData.append('body', post?.body)
+    try {
+      await uploadArticle(formData);
+      alert('success post article');
+      push('/dasboard');
+    } catch (err) {
+      alert('failed post article');
+    }
   }
-
-  useEffect(() => {
-
-  }, [])
 
   return (
     <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">

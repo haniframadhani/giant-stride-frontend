@@ -14,7 +14,6 @@ const Upload = ({ className, setImage }) => {
           Object.assign(file, { preview: URL.createObjectURL(file) })
         )
       ])
-      // console.log(acceptedFiles[0])
       setImage(acceptedFiles[0])
     }
 
@@ -32,7 +31,6 @@ const Upload = ({ className, setImage }) => {
   })
 
   useEffect(() => {
-    // Revoke the data uris to avoid memory leaks
     return () => files.forEach(file => URL.revokeObjectURL(file.preview))
   }, [files])
 

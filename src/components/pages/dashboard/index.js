@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   const handleGetAllArticle = async () => {
     const res = await getAllArticle();
-    setBlogs(res?.data?.articles)
+    setBlogs(res?.articles)
   }
 
   useEffect(() => {
