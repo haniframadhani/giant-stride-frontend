@@ -15,3 +15,12 @@ export async function getAllArticle() {
   const data = await response.json();
   return data;
 }
+
+export async function deleteArticle(id) {
+  // console.log(id)
+  return await fetch(`${BASEURL}api/article?id=${id}`, {
+    method: 'DELETE'
+  }).catch(error => {
+    return error;
+  })
+}
