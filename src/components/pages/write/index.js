@@ -2,7 +2,7 @@ import Button from "@/components/components/button"
 import InputText from "@/components/components/inputs/text"
 import TextEditor from "@/components/components/texteditor"
 import Upload from "@/components/components/upload"
-import { uploadArticle } from "@/utils/apiRequest"
+import { uploadArticle } from "@/components/utils/apiRequest"
 import { ChevronLeftIcon } from "@heroicons/react/24/outline"
 
 import Head from "next/head"

@@ -17,7 +17,6 @@ export async function getAllArticle() {
 }
 
 export async function deleteArticle(id) {
-  // console.log(id)
   return await fetch(`${BASEURL}api/article?id=${id}`, {
     method: 'DELETE'
   }).catch(error => {
