@@ -1,19 +1,21 @@
-import { deleteArticle } from "@/utils/apiRequest";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import openModalDeleteContext from "@/components/contexts/openModalDeleteContext"
+import selectedArticleContext from "@/components/contexts/selectedArticleContext"
 import { DateTime } from "luxon";
+import { useContext } from "react";
 
 export default function Card({ title, img, date, id }) {
+  const { setShowModal } = useContext(openModalDeleteContext);
+  const { setArticle } = useContext(selectedArticleContext);
+
   const time = DateTime.fromISO(date);
   const waktu = time.setLocale('en').toLocaleString(DateTime.DATE_FULL);
-  const deletePost = async () => {
-    if (confirm(`delete "${title}"?`)) {
-      try {
-        await deleteArticle(id);
-      }
-      catch (error) {
-        alert(error);
-      }
-    }
+  const deletePost = () => {
+    setArticle({
+      title,
+      id
+    })
+    setShowModal(true);
   }
   return (
     <div className="col-span-1 flex flex-col gap-5">
