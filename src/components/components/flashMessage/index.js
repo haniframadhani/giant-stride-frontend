@@ -1,25 +1,39 @@
 import useLockBodyScroll from "@/components/utils/useLockBodyScroll";
 import useOnClickOutside from "@/components/utils/useOnClickOutside";
 import openFlashMessagecontext from "@/components/contexts/openFlashMessagecontext";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import DeleteMessage from "./body/delete";
+import PostMessage from "./body/post";
+import { useRouter } from "next/router";
 
-export default function Flash({ handleGetAllArticle }) {
+export default function Flash({ handleGetAllArticle, message }) {
   const flashRef = useRef(null);
   const { setShowFlash, success } = useContext(openFlashMessagecontext);
-  useLockBodyScroll();
-  useOnClickOutside(flashRef, () => setShowFlash(false));
+  const { push } = useRouter();
 
-  setTimeout(() => {
-    setShowFlash(false);
-    handleGetAllArticle();
-  }, 3000)
+  useLockBodyScroll();
+  useOnClickOutside(flashRef, () => {
+    setShowFlash(false)
+    if (message === 'delete') {
+      handleGetAllArticle();
+    } else if (message === 'post') {
+      push('/dashboard');
+    }
+  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowFlash(false);
+      if (message === 'delete') {
+        handleGetAllArticle();
+      }
+    }, 3000);
+  }, [])
 
   return (
     <div className="bg-overlay">
       <div ref={flashRef} className="bg-white flex items-center gap-2 rounded-sm px-8 py-2 capitalize">
-        {success ? <CheckCircleIcon className="w-6 h-6 text-dark-blue" /> : <XCircleIcon className="w-6 h-6 text-red-600" />}
-        <p className="text-xl">{success ? 'successfuly deleted' : 'failed deleted'}</p>
+        {message === 'delete' ? <DeleteMessage success={success} /> : <PostMessage success={success} />}
       </div>
     </div>
   )
