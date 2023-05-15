@@ -6,7 +6,7 @@ import { useContext, useRef } from "react";
 
 export default function Flash({ handleGetAllArticle }) {
   const flashRef = useRef(null);
-  const { setShowFlash, successDelete } = useContext(openFlashMessagecontext);
+  const { setShowFlash, success } = useContext(openFlashMessagecontext);
   useLockBodyScroll();
   useOnClickOutside(flashRef, () => setShowFlash(false));
 
@@ -18,8 +18,8 @@ export default function Flash({ handleGetAllArticle }) {
   return (
     <div className="bg-overlay">
       <div ref={flashRef} className="bg-white flex items-center gap-2 rounded-sm px-8 py-2 capitalize">
-        {successDelete ? <CheckCircleIcon className="w-6 h-6 text-dark-blue" /> : <XCircleIcon className="w-6 h-6 text-red-600" />}
-        <p className="text-xl">{successDelete ? 'successfuly deleted' : 'failed deleted'}</p>
+        {success ? <CheckCircleIcon className="w-6 h-6 text-dark-blue" /> : <XCircleIcon className="w-6 h-6 text-red-600" />}
+        <p className="text-xl">{success ? 'successfuly deleted' : 'failed deleted'}</p>
       </div>
     </div>
   )

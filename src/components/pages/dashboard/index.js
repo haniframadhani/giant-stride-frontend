@@ -14,7 +14,7 @@ export default function Dashboard() {
   const [blogs, setBlogs] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showFlash, setShowFlash] = useState(false);
-  const [successDelete, setSuccessDelete] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [article, setArticle] = useState({});
 
   const handleGetAllArticle = async () => {
@@ -33,7 +33,7 @@ export default function Dashboard() {
       </Head>
       <openModalDeleteContext.Provider value={{ setShowModal }}>
         <selectedArticleContext.Provider value={{ article, setArticle }}>
-          <openFlashMessagecontext.Provider value={{ setShowFlash, successDelete, setSuccessDelete }}>
+          <openFlashMessagecontext.Provider value={{ setShowFlash, success, setSuccess }}>
             <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">
               <div className="col-span-full flex justify-between">
                 <h1 className="capitalize text-4xl font-medium">dashboard</h1>

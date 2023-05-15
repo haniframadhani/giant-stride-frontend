@@ -7,14 +7,14 @@ import { useContext } from "react";
 export default function ButtonDelete() {
   const { article } = useContext(selectedArticleContext);
   const { setShowModal } = useContext(openModalDeleteContext);
-  const { setSuccessDelete, setShowFlash } = useContext(openFlashMessagecontext);
+  const { setSuccess, setShowFlash } = useContext(openFlashMessagecontext);
   const deletePost = async () => {
     try {
       await deleteArticle(article.id);
-      setSuccessDelete(true);
+      setSuccess(true);
     }
     catch (error) {
-      setSuccessDelete(false);
+      setSuccess(false);
     }
     setShowFlash(true);
     setShowModal(false);
