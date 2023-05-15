@@ -29,7 +29,7 @@ export default function Write() {
     try {
       await uploadArticle(formData);
       alert('success post article');
-      push('/dasboard');
+      push('/dashboard');
     } catch (err) {
       alert('failed post article');
     }
