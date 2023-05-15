@@ -47,7 +47,7 @@ export default function Dashboard() {
                 })}
               </div>
               {showModal && (<ModalDelete />)}
-              {showFlash && (<Flash handleGetAllArticle={handleGetAllArticle} />)}
+              {showFlash && (<Flash handleGetAllArticle={handleGetAllArticle} message='delete' />)}
             </div>
           </openFlashMessagecontext.Provider>
         </selectedArticleContext.Provider>
