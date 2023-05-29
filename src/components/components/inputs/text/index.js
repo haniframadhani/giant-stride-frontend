@@ -1,7 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function InputText({ name, id, placeholder, setTitle }) {
+export default function InputText({ name, id, placeholder, setTitle, titleContent }) {
   const [nilai, setNilai] = useState('');
+  useEffect(() => {
+    if (titleContent != null) {
+      setNilai(titleContent);
+    }
+  }, [titleContent])
   const setValue = e => {
     setTitle ? setTitle(e.target.value) : null;
     setNilai(e.target.value);

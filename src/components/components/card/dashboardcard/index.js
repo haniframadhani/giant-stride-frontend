@@ -27,7 +27,9 @@ export default function Card({ title, img, date, id }) {
         <h3 className="text-4xl font-medium text-black">{title}</h3>
       </div>
       <div className="flex justify-end gap-2">
-        <PencilSquareIcon className="w-6 h-6 cursor-pointer" />
+        <a href={`./update/${id}`}>
+          <PencilSquareIcon className="w-6 h-6 cursor-pointer" />
+        </a>
         <div className="cursor-pointer hover:text-red-500 active:text-red-800" onClick={(e) => {
           e.stopPropagation()
           e.preventDefault()
