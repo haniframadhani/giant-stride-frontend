@@ -35,10 +35,7 @@ export default function Write() {
       await uploadArticle(formData);
       setSuccess(true);
       setShowFlash(true);
-      // alert('success post article');
-      // push('/dashboard');
     } catch (err) {
-      // alert('failed post article');
       setSuccess(false);
     }
   }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   BtnBold,
   BtnItalic,
@@ -15,13 +15,19 @@ import {
   Toolbar
 } from 'react-simple-wysiwyg';
 
-export default function TextEditor({ setBody }) {
+export default function TextEditor({ setBody, bodyContent }) {
   const [value, setValue] = useState('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>');
 
   function onChange(e) {
     setValue(e.target.value);
     setBody(e.target.value)
   }
+
+  useEffect(() => {
+    if (bodyContent != null) {
+      setValue(bodyContent);
+    }
+  }, [bodyContent])
 
   return (
     <EditorProvider>
