@@ -31,10 +31,9 @@ export async function deleteArticle(id) {
 }
 
 export async function updateArticle(id, data) {
-  // 400 no data send
   const headers = new Headers();
   headers.append("Content-Type", "application/x-www-form-urlencoded");
-  var urlencoded = new URLSearchParams();
+  let urlencoded = new URLSearchParams();
   urlencoded.append("title", data.title);
   urlencoded.append("body", data.body);
 
