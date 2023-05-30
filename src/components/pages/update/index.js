@@ -27,12 +27,18 @@ export default function Update() {
   }
 
   const postArticle = async () => {
-    // console.log(data)
+    if (updatePost.title === post.title && updatePost.body === post.body) {
+      return alert('data sama')
+    }
     try {
-      // 400 no data send
       await updateArticle(id, updatePost)
-        .then(response => response.text())
-        .then(result => console.log(result))
+        .then(response => {
+          if (response.status === 304) {
+            return console.log(response.status);
+          }
+          return response.json()
+        })
+        .then(result => { console.log(result) })
     } catch (err) {
       console.log(err);
     }
@@ -46,6 +52,12 @@ export default function Update() {
     }
   }, [id])
 
+  useEffect(() => {
+    setUpdatePost({
+      title: post?.title,
+      body: post?.body
+    })
+  }, [post])
 
   return (
     <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">
