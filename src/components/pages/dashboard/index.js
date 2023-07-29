@@ -24,6 +24,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     handleGetAllArticle();
+    document.body.className = 'bg-white';
   }, [])
 
   return (

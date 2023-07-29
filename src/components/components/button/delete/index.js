@@ -10,8 +10,14 @@ export default function ButtonDelete() {
   const { setSuccess, setShowFlash } = useContext(openFlashMessagecontext);
   const deletePost = async () => {
     try {
-      await deleteArticle(article.id);
-      setSuccess(true);
+      await deleteArticle(article.id)
+        .then(result => {
+          if (result.status == 204) {
+            setSuccess(true);
+          } else {
+            setSuccess(false);
+          }
+        })
     }
     catch (error) {
       setSuccess(false);
