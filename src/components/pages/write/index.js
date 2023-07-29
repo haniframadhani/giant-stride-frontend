@@ -32,12 +32,19 @@ export default function Write() {
     formData.append('title', post?.title)
     formData.append('body', post?.body)
     try {
-      await uploadArticle(formData);
-      setSuccess(true);
-      setShowFlash(true);
+      await uploadArticle(formData)
+        .then(response => response.json())
+        .then(result => {
+          if (result.status == 201) {
+            setSuccess(true);
+          } else {
+            setSuccess(false);
+          }
+        })
     } catch (err) {
       setSuccess(false);
     }
+    setShowFlash(true);
   }
 
   return (
