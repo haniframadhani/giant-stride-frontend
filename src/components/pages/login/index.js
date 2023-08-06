@@ -1,10 +1,21 @@
 import Button from "@/components/components/button"
 import InputEmail from "@/components/components/inputs/email"
 import InputPassword from "@/components/components/inputs/password"
+import { useSession } from "next-auth/react"
 import Head from "next/head"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 export default function Login() {
+  const router = useRouter();
+  const { status } = useSession();
+
+  useEffect(() => {
+    if (status == 'authenticated') {
+      router.push("/dashboard")
+    }
+  }, [status]);
+
   useEffect(() => {
     document.body.className = 'bg-dull-blue';
   }, []);

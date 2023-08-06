@@ -10,9 +10,12 @@ import openFlashMessagecontext from "@/components/contexts/openFlashMessageconte
 import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import ReactLoading from 'react-loading'
+import { useSession } from "next-auth/react"
 
 export default function Write() {
+  const { status } = useSession();
   const [post, setPost] = useState({
     title: "",
     image: "",
@@ -25,7 +28,7 @@ export default function Write() {
   const [showFlash, setShowFlash] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const { push } = useRouter();
+  const router = useRouter();
   const postArticle = async () => {
     let formData = new FormData();
     formData.append('image', post?.image)
@@ -45,6 +48,20 @@ export default function Write() {
       setSuccess(false);
     }
     setShowFlash(true);
+  }
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push("/")
+    }
+  }, [status]);
+
+  if (status !== 'authenticated') {
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <ReactLoading type="spinningBubbles" color="" height="" width="" className="fill-black w-20 h-20" />
+      </div>
+    )
   }
 
   return (
