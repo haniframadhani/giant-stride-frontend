@@ -10,8 +10,12 @@ import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
+import ReactLoading from 'react-loading'
 
 export default function Update() {
+  const { status } = useSession();
+
   const router = useRouter();
   const id = router.query.articleId;
   const [post, setPost] = useState({});
@@ -69,6 +73,20 @@ export default function Update() {
       body: post?.body
     })
   }, [post])
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push("/")
+    }
+  }, [status]);
+
+  if (status !== 'authenticated') {
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <ReactLoading type="spinningBubbles" color="" height="" width="" className="fill-black w-20 h-20" />
+      </div>
+    )
+  }
 
   return (
     <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">

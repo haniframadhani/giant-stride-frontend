@@ -1,7 +1,7 @@
 import Button from "@/components/components/button"
 import Card from "@/components/components/card/dashboardcard"
 import ModalDelete from "@/components/components/modal/delete"
-import { getAllArticle } from "@/components/utils/apiRequest"
+import { Logout, getAllArticle } from "@/components/utils/apiRequest"
 import openModalDeleteContext from "@/components/contexts/openModalDeleteContext"
 import selectedArticleContext from "@/components/contexts/selectedArticleContext"
 import openFlashMessagecontext from "@/components/contexts/openFlashMessagecontext"
@@ -9,13 +9,19 @@ import Head from "next/head"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import Flash from "@/components/components/flashMessage"
+import { signOut, useSession } from "next-auth/react"
+import { useRouter } from "next/router"
+import ReactLoading from 'react-loading'
 
 export default function Dashboard() {
+  const router = useRouter();
+
   const [blogs, setBlogs] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showFlash, setShowFlash] = useState(false);
   const [success, setSuccess] = useState(false);
   const [article, setArticle] = useState({});
+  const { status } = useSession();
 
   const handleGetAllArticle = async () => {
     const res = await getAllArticle();
@@ -27,6 +33,20 @@ export default function Dashboard() {
     document.body.className = 'bg-white';
   }, [])
 
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push("/")
+    }
+  }, [status]);
+
+  if (status !== 'authenticated') {
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <ReactLoading type="spinningBubbles" color="" height="" width="" className="fill-black w-20 h-20" />
+      </div>
+    )
+  }
+
   return (
     <>
       <Head>
@@ -36,6 +56,12 @@ export default function Dashboard() {
         <selectedArticleContext.Provider value={{ article, setArticle }}>
           <openFlashMessagecontext.Provider value={{ setShowFlash, success, setSuccess }}>
             <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">
+              <button onClick={async () => {
+                await signOut()
+                await Logout()
+                  .then(response => response.json())
+                  .then(result => { if (result.status === 200) { router.push('/') } });
+              }}>logout</button>
               <div className="col-span-full flex justify-between">
                 <h1 className="capitalize text-4xl font-medium">dashboard</h1>
                 <Link href="write">
