@@ -1,4 +1,3 @@
-// const BASEURL = 'http://localhost:4000'
 const BASEURL = process.env.REACT_APP_BASE_URL
 
 export async function uploadArticle(data) {
@@ -64,7 +63,7 @@ export async function Login(credentials) {
     "password": credentials.password
   });
 
-  return fetch(`${BASEURL}api/auth/login`, {
+  return fetch(`${BASEURL}api/auth`, {
     method: 'POST',
     headers: myHeaders,
     body: raw,
@@ -73,8 +72,8 @@ export async function Login(credentials) {
 }
 
 export async function Logout() {
-  return fetch(`${BASEURL}api/auth/logout`, {
-    method: 'POST',
+  return fetch(`${BASEURL}api/auth`, {
+    method: 'DELETE',
     credentials: 'include'
   }).catch(error => {
     return error;
@@ -82,7 +81,7 @@ export async function Logout() {
 }
 
 async function getToken() {
-  return fetch(`${BASEURL}api/auth/token`, {
+  return fetch(`${BASEURL}api/auth`, {
     method: 'GET',
     credentials: 'include'
   }).catch(error => {

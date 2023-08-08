@@ -14,10 +14,8 @@ export const authOption = {
       credentials: {},
       async authorize(credentials, req) {
         const { email, password } = credentials;
-        // console.log(credentials);
         let user = await Login({ email, password })
           .then(response => {
-            console.log(response)
             if (response.status !== 200) {
               throw new Error('invalid credential')
             }
