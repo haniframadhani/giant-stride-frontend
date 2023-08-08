@@ -55,13 +55,15 @@ export default function Dashboard() {
       <openModalDeleteContext.Provider value={{ setShowModal }}>
         <selectedArticleContext.Provider value={{ article, setArticle }}>
           <openFlashMessagecontext.Provider value={{ setShowFlash, success, setSuccess }}>
-            <div className="mx-8 md:mx-10 pt-20 pb-16 font-['Poppins']">
-              <button onClick={async () => {
-                await signOut()
-                await Logout()
-                  .then(response => response.json())
-                  .then(result => { if (result.status === 200) { router.push('/') } });
-              }}>logout</button>
+            <div className="mx-8 md:mx-10 pt-16 pb-16 font-['Poppins']">
+              <div className="flex justify-end mb-2">
+                <button className="text-base text-slate-400 hover:text-slate-600" onClick={async () => {
+                  await signOut()
+                  await Logout()
+                    .then(response => response.json())
+                    .then(result => { if (result.status === 204) { router.push('/') } });
+                }}>logout</button>
+              </div>
               <div className="col-span-full flex justify-between">
                 <h1 className="capitalize text-4xl font-medium">dashboard</h1>
                 <Link href="write">
