@@ -16,7 +16,7 @@ export default function Detail({ blog }) {
       <div className="mx-auto md:w-10/12 aspect-video overflow-hidden rounded-lg">
         <img className="object-cover w-full h-full" src={blog?.image} alt="" />
       </div>
-      <div className="md:w-4/6 lg:w-8/12 mx-auto">
+      <div className="md:w-4/6 lg:w-8/12 mx-auto selection:bg-orange-400">
         <h1 className="text-3xl md:text-4xl lg:text-6xl mt-10 font-medium">{blog?.title}</h1>
         <p className="text-sm text-light-gray mt-2 mb-8 text-['Inter'] font-normal">{waktu}</p>
         <div className="text-start grid gap-6 text-base" dangerouslySetInnerHTML={{ __html: blog?.body }}></div>

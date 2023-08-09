@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <header className="w-full sticky top-0 z-50">
       <div className="md:flex items-center justify-between bg-cyan-blue text-white py-4 md:px-10 px-7">
-        <Link href="/"><h1 className="cursor-pointer uppercase font-bold text-2xl text-center">giant<br />spot</h1></Link>
+        <Link href="/"><h1 className="cursor-pointer uppercase font-bold text-2xl text-center">giant<br />stride</h1></Link>
         <div onClick={() => setOpen(!open)} className="absolute right-8 top-6 cursor-pointer md:hidden">
           {!open ? <Bars2Icon className="w-12 h-12" /> : <XMarkIcon className="w-12 h-12" />}
         </div>
