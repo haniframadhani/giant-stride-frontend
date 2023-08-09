@@ -2,24 +2,30 @@ import Button from '@/components/components/button';
 import InputEmail from '@/components/components/inputs/email';
 import InputText from '@/components/components/inputs/text';
 import TextArea from '@/components/components/inputs/textarea';
-import { EnvelopeIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import profile from '@/components/asset/image/profile.webp';
+import Image from 'next/image'
 
 export default function Contact() {
   useEffect(() => {
     document.body.className = 'bg-gradient-to-b from-[#339CF0] from-0% via-[#004E98] via-60% to-[#020024] to-100%';
   }, []);
+  const style = {
+    objectFit: 'cover',
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+  }
   return (
     <div className="mx-8 md:mx-10 mt-20 mb-16 text-white font-['Poppins']">
       <Head>
         <title>About Me | Giant Spot</title>
       </Head>
-      <div id="about" className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 w-10/12 mx-auto gap-y-8 gap-x-5 scroll-m-28 snap-start">
+      <div id="about" className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 w-12/12 md:w-10/12 md:mx-auto gap-y-8 gap-x-5 scroll-m-28 snap-start">
         <h2 className="capitalize col-span-full font-bold text-3xl">about me</h2>
         <div className="aspect-square overflow-hidden rounded-lg col-span-full md:col-span-4 row-span-2">
-          <img src={profile.src} alt="" />
+          <Image src={profile.src} width='100' height='100' style={style} />
         </div>
         <div className="col-span-full md:col-span-4 lg:col-span-8 text-justify flex flex-col gap-2 selection:bg-orange-400">
           <p>Welcome to the wonderful underwater world! I'm Ethan Robinson, a dedicated and enthusiastic scuba driver in exploring the beauty of seas and ocean. Since my youth, I have been felt in love with the beauty of underwater world and since then, I never stop following the call of the sea.</p>
@@ -45,7 +51,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div id='contact' className='grid grid-cols-12 w-10/12 mx-auto mt-16'>
+      <div id='contact' className='grid grid-cols-12 w-12/12 md:w-10/12 mx-auto mt-16'>
         <h2 className="capitalize col-span-full font-bold text-3xl">Contact Me</h2>
         <div className="col-span-full lg:col-span-8 grid gap-y-3 mt-5 !font-['Inter']">
           <InputText name='name' id='name' placeholder='name' />
