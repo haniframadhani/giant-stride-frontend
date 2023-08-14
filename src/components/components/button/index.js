@@ -12,11 +12,6 @@ export default function Button({ text, iconPlus, clickEvent, account }) {
       password: account.password,
       redirect: false
     })
-    try {
-      await Login(account);
-    } catch (err) {
-      console.log(err);
-    }
     if (res.status === 200) {
       router.push('/dashboard');
     }

@@ -68,7 +68,9 @@ export async function Login(credentials) {
     headers: myHeaders,
     body: raw,
     credentials: 'include'
-  }).then(data => data.json())
+  }).catch(error => {
+    return error;
+  })
 }
 
 export async function Logout() {
@@ -84,7 +86,9 @@ async function getToken() {
   return fetch(`${BASEURL}api/auth`, {
     method: 'GET',
     credentials: 'include'
-  }).catch(error => {
-    return error;
   })
+    .then(response => response.json())
+    .catch(error => {
+      return error;
+    })
 }
