@@ -58,10 +58,9 @@ export default function Dashboard() {
             <div className="mx-8 md:mx-10 pt-16 pb-16 font-['Poppins']">
               <div className="flex justify-end mb-2">
                 <button className="text-base text-slate-400 hover:text-slate-600" onClick={async () => {
-                  await signOut()
                   await Logout()
-                    .then(response => response.json())
                     .then(result => { if (result.status === 204) { router.push('/') } });
+                  await signOut()
                 }}>logout</button>
               </div>
               <div className="col-span-full flex justify-between">

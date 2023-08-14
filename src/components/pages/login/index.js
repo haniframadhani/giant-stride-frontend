@@ -7,18 +7,19 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 export default function Login() {
+  useEffect(() => {
+    document.body.className = 'bg-dull-blue';
+  }, []);
+
   const router = useRouter();
   const { status } = useSession();
 
   useEffect(() => {
     if (status == 'authenticated') {
-      router.push("/dashboard")
+      router.push("/dashboard");
     }
   }, [status]);
 
-  useEffect(() => {
-    document.body.className = 'bg-dull-blue';
-  }, []);
   const [account, setAccount] = useState({
     email: "",
     password: ""
