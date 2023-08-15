@@ -1,10 +1,12 @@
-import { Login } from "@/components/utils/apiRequest";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import { useContext } from "react";
+import loginErrorContext from "@/components/contexts/loginErrorContext";
 
 export default function Button({ text, iconPlus, clickEvent, account }) {
   const router = useRouter();
+  const setErrorLogin = useContext(loginErrorContext);
   const login = async e => {
     e.preventDefault();
     const res = await signIn('credentials', {
@@ -12,6 +14,9 @@ export default function Button({ text, iconPlus, clickEvent, account }) {
       password: account.password,
       redirect: false
     })
+    if (res.status === 401) {
+      setErrorLogin(res)
+    }
     if (res.status === 200) {
       router.push('/dashboard');
     }
