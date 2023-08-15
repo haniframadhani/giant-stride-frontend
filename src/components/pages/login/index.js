@@ -38,7 +38,7 @@ export default function Login() {
       <Head>
         <title>login</title>
       </Head>
-      <loginErrorContext.Provider value={{ setErrorLogin }}>
+      <loginErrorContext.Provider value={setErrorLogin}>
         <div className="text-white bg-dark-blue py-8 px-10 md:px-16 w-fit h-fit rounded-lg drop-shadow-2xl">
           <h2 className="text-3xl md:text-5xl uppercase font-bold font-['Inter'] text-center">giant spot</h2>
           <form className="grid gap-2 mt-5 md:mt-7">
