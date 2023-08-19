@@ -1,7 +1,7 @@
 const BASEURL = process.env.REACT_APP_BASE_URL
 
 export async function uploadArticle(data) {
-  let token = await getToken().then(response => response.json()).then(result => result.accessToken);
+  let token = await getToken().then(result => result.accessToken);
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${token}`);
   return await fetch(`${BASEURL}api/article`, {
@@ -26,7 +26,7 @@ export async function getOneArticle(id) {
 }
 
 export async function deleteArticle(id) {
-  let token = await getToken().then(response => response.json()).then(result => result.accessToken);
+  let token = await getToken().then(result => result.accessToken);
   const headers = new Headers();
   headers.append("Authorization", `Bearer ${token}`);
   return await fetch(`${BASEURL}api/article?id=${id}`, {
@@ -38,7 +38,7 @@ export async function deleteArticle(id) {
 }
 
 export async function updateArticle(id, data) {
-  let token = await getToken().then(response => response.json()).then(result => result.accessToken);
+  let token = await getToken().then(result => result.accessToken);
   const headers = new Headers();
   headers.append("Content-Type", "application/x-www-form-urlencoded");
   headers.append("Authorization", `Bearer ${token}`);
