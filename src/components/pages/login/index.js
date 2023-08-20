@@ -29,10 +29,6 @@ export default function Login() {
   const setEmail = value => { setAccount({ ...account, email: value }) }
   const setPassword = value => { setAccount({ ...account, password: value }) }
 
-  useEffect(() => {
-    console.log(errorLogin)
-  }, [errorLogin])
-
   return (
     <div className="w-screen h-screen grid place-content-center">
       <Head>
