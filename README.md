@@ -68,6 +68,7 @@ Start the development server
 To run this project, you will need to add the following environment variables to your .env file
 
 `REACT_APP_BASE_URL` your backend url E.g http://localhost:4000/
+
 `NEXTAUTH_SECRET` not required in development. **MUST** for production, E.g `sMXvr7vjqEr4UyJXvftAUIBFMTDNkvV8`
 ## Backend
 
